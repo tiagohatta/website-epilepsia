@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+  <title>Epilepsia</title>
+      <link rel="shortcut icon" href="img/favicon.ico" >
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1" />
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/cookie.js" type="text/javascript"></script>
+
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+                $("#adulta").click( function(ev){
+                    ev.preventDefault();
+             alert("Esse vídeo ainda não está disponível :(", "Aviso");
+                });
+
+$("#velhice").click( function(ev){
+                    ev.preventDefault();
+             alert("Esse vídeo ainda não está disponível :(", "Aviso");
+             });
+});
+</script>
+<script>
+
+
+$(window).bind('resize', function () { 
+
+    telainicial();
+  
+});
+
+$(document).ready(function(){
+  telainicial();
+});
+
+function telainicial(){
+  var width = $(window).width();
+  var height = $(window).height();
+
+console.log("rodando!!! width = "+ width);
+
+if (width >= 1145){
+  $("#paisagem").show();
+  $("#retrato").hide();
+  $('#poke').removeAttr('viewBox');
+$('#poke').each(function () { $(this)[0].setAttribute('viewBox', '-226 -60 1800 1426') });
+}
+
+else if (width < 1145 && width >= 725){
+  $("#paisagem").show();
+  $("#retrato").hide();
+  var y= -100 +(((width-1145)*5)/36);
+  var tamx = (((width-1145)*500)/360)+1800;
+  var x= (((width-1145)*256)/(-360))-226; 
+  $('#poke').removeAttr('viewBox');
+$('#poke').each(function () { $(this)[0].setAttribute('viewBox', ''+x+' ' +y+' '+tamx+ ' 1426') });
+}
+  
+else if (width > 487 && width < 725){
+  $("#retrato").show();
+  $("#paisagem").hide();
+
+  var y = -350 + ((width-487)*275/298);
+  $('#poke2').removeAttr('viewBox');
+$('#poke2').each(function () { $(this)[0].setAttribute('viewBox', '75 ' +y+' 1180 1584') });
+}
+
+
+else if (width <= 487){
+  $("#retrato").show();
+  $("#paisagem").hide();
+  $('#poke2').removeAttr('viewBox');
+$('#poke2').each(function () { $(this)[0].setAttribute('viewBox', '75 -350 1180 1584') });
+
+}
+
+}
+</script>
+
+
+<style>
+body, html {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+</style>
+
+</head>
+<body  onload="checkCookie()">
+<div class="svg-container" id="paisagem" style="display: block">
+<svg id="poke" version="1.1" viewBox="-120 -120 1600 1426" preserveAspectRatio="xMinYMin meet" class="svg-content" >
+
+<image style="overflow:visible;" width="1800" height="1426" xlink:href="css/poke-novo.jpg"transform="matrix(1 0 0 1 -226 -281)"></image>
+<a xlink:href="infancia.html">
+<polygon class="st0" points="244.7,228.3 244.7,147 287,114.3 411,114.3 451,146.7 451,227 448,230 442.7,230 442,222.3 
+  436.7,218.3 436.3,244.3 431,247.3 419,260.3 376.7,260.3 366.3,262 364.7,258.3 332.7,258.7 331.3,260.7 282.7,262 282,273.3 
+  280.3,278 258,278 257,254.3 269.3,253.7 265.7,248.7 259.7,246.7 260,220.7 257.3,220.3 251.3,227.3 " opacity="0"/></a>
+<a xlink:href="juventude.html">
+<polygon class="st0" points="284,544.5 273.5,531.5 273.5,524.5 267,521 267,445.5 305.5,417.5 335.5,417.5 346,401.5 354,418 
+  384.5,417.5 422,445.5 422,525.5 411.5,544.5 409,559 382,559 370,556 284,556 " opacity="0"/></a>
+<a xlink:href="adulta.html" id="adulta">
+<polygon class="st0" id="poligonoadulta" points="948,589 948,538 943.5,538 943.5,442 1136.5,442 1136.5,535 1133,538.5 1133.5,589 " opacity="0"/></a>
+<a xlink:href="velhice.html" id="velhice">
+<path class="st0" d="M945.3,244.5l-5.8,0.5c0,0-4-30.8,3.5-36.3c4.4-3.2,9-0.8,9-0.8l1.3-81.3L957,112h12.8l64.5-50l62.7,49.2
+  l13.1,0.3l0.2,9.7l4.8,4V229h-12v28.8h-11l-0.3-12.7l-112.5-0.4l-1,4.9L966,249v-24.5c-2.3-3-4.5,2.5-4.5,2.5l-0.5,17.3l-7.5,0.8
+  l0.8,7.8h-8.8" opacity="0"/></a>
+</svg>
+</div>
+
+
+
+<div class="svg-container" id="retrato" style="display: none">
+  <svg id="poke2" version="1.1" viewBox="205 -50 1280 1584" preserveAspectRatio="xMinYMin meet" class="svg-content" >
+<image style="overflow:visible;" width="1280" height="1584" xlink:href="css/poke-ret.jpg"transform="matrix(1 0 0 1 32 -360)"></image>
+<a xlink:href="infancia.html">
+  <polygon class="st0" points="416.7,401.3 416.7,320 459,287.3 583,287.3 623,319.7 623,400 620,403 614.7,403 614,395.3 
+  608.7,391.3 608.3,417.3 603,420.3 591,433.3 548.7,433.3 538.3,435 536.7,431.3 504.7,431.7 503.3,433.7 454.7,435 454,446.3 
+  452.3,451 430,451 429,427.3 441.3,426.7 437.7,421.7 431.7,419.7 432,393.7 429.3,393.3 423.3,400.3 "opacity="0"/></a>
+<a xlink:href="juventude.html">
+<polygon class="st0" points="455,645.5 444.5,632.5 444.5,625.5 438,622 438,546.5 476.5,518.5 506.5,518.5 517,502.5 525,519 
+  555.5,518.5 593,546.5 593,626.5 582.5,645.5 580,660 553,660 541,657 455,657 "opacity="0"/></a>
+<a xlink:href="adulta.html" id="adulta">
+  <polygon class="st0" points="759,653 759,602 754.5,602 754.5,506 947.5,506 947.5,599 944,602.5 944.5,653 "opacity="0"/></a>
+  <a xlink:href="velhice.html" id="velhice">
+<path class="st0" d="M763.3,420.5l-5.8,0.5c0,0-4-30.8,3.5-36.3c4.4-3.2,9-0.8,9-0.8l1.3-81.3L775,288h12.8l64.5-50l62.7,49.2
+  l13.1,0.3l0.2,9.7l4.8,4V405h-12v28.8h-11l-0.3-12.7l-112.5-0.4l-1,4.9L784,425v-24.5c-2.3-3-4.5,2.5-4.5,2.5l-0.5,17.3l-7.5,0.8
+  l0.8,7.8h-8.8"opacity="0"></a>
+
+</svg>
+</div>
+
+
+
+
+</body>
+</html>
