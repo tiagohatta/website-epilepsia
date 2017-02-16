@@ -1,6 +1,3 @@
-
-
-
 $(window).bind('resize', function () { 
 
     corrigirquadrados();
@@ -82,9 +79,9 @@ function desativardivs(){
 		$('.current').text(timeFormat(0));
 		$('.duration').text(timeFormat(video[0].duration));
 		var cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)volume\s*\=\s*([^;]*).*$)|^.*$/, "$1");
-cookieValue=cookieValue/100;
-updateVolume(0, cookieValue);
-console.log("cookievalue="+cookieValue);
+		cookieValue=cookieValue/100;
+		updateVolume(0, cookieValue);
+		console.log("cookievalue="+cookieValue);
 			
 		//start to get video buffering data 
 		setTimeout(startBuffer, 150);
@@ -333,7 +330,7 @@ else if (document.title === "Intro"){
 	//quality changed
 
 	$('#720p').on('click', function() { 
-$('#qual').text('720p');
+		$('#qual').text('720p');
 		video[0].pause();
 		$('#config').css({"display": "none"}); 
 		$('#qualidade').css({"display": "none"}); 
@@ -354,7 +351,7 @@ $('#qual').text('720p');
 	});
 
 		$('#360p').on('click', function() { 
-$('#qual').text('360p');
+		$('#qual').text('360p');
 		video[0].pause();
 		$('#config').css({"display": "none"}); 
 		$('#qualidade').css({"display": "none"}); 
@@ -542,29 +539,29 @@ else {
 	$('.share').click(function() {
 
 		if($('.botoes').css('display') == 'none')
-{
+		{
 
-$('.vidmochila').css({"display": "none"});
-$('.botoes').css({"display": "block"});
-}
-else {
-	$('.botoes').css({"display": "none"});
-	startTimer();
-}
+			$('.vidmochila').css({"display": "none"});
+			$('.botoes').css({"display": "block"});
+		}
+		else {
+			$('.botoes').css({"display": "none"});
+			startTimer();
+		}
 	});
 
 	//JANELA MOCHILA
 	$('.mochila').click(function() {
 
 		if($('.vidmochila').css('display') == 'none')
-{
-	$('.botoes').css({"display": "none"});
-$('.vidmochila').css({"display": "block"});
-}
-else {
-	$('.vidmochila').css({"display": "none"});
-	startTimer();
-}
+		{
+			$('.botoes').css({"display": "none"});
+			$('.vidmochila').css({"display": "block"});
+		}
+		else {
+			$('.vidmochila').css({"display": "none"});
+			startTimer();
+		}
 	});
 
 	//sound button clicked

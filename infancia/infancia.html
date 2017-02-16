@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html"; charset="utf-8">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/jquery.js"></script>
+<script src="js/video.js"></script>
+<title> Infancia </title>
+
+	<link rel="shortcut icon" href="img/favicon.ico" >
+	
+	<!-- custom scrollbar stylesheet -->
+	<link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
+	  
+	<!-- Google CDN jQuery UI stylesheet -->
+	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/hot-sneaks/jquery-ui.css" />
+  
+	<style> video{
+	height: 100%;
+	width: 100%;
+	display:block;
+	}
+	
+	.videoContainer{
+	height: 100%;
+	width: 100%;
+	}
+	</style>
+
+
+<script>
+	var x= location.search;
+	x = x.substr(1);
+	
+	//alert("x = " + x);
+	if (x==="infancia"){
+	  $("#inicio").hide();
+	  $("#ep2").show();
+	
+	}
+</script>
+
+</head>
+
+<body>
+<section id="wrapper">
+
+
+<div class="videoContainer">
+
+<div id="ep2" class="video-container" >
+                <video controls autoplay id="v_ep2" width="960" height="540" preload="true" style="display: block; z-index: 100;" class="myVideo">
+                <source  id="webmvideo" rc="videos/ep2.webm" >
+                  <source  id="mp4video" src="videos/ep2.mp4" >
+                <p>Seu navegador não suporta o elemento vídeo. Por favor, atualize a versão de seu navegador.<p>
+                </video></div>
+                
+                <!-- ESCOLHA DO USUARIO -->
+                
+                <a style="display:block" href="infancia-x.html"><div id="selec6" class="ble"></div></a>
+                
+                <a style="display:block" href="infancia-y.html"><div id="selec7" class="ble"></div></a>
+
+     <div style="opacity: 0.31011;" class="caption">This is HTML5 video with custom controls</div>
+  
+	<div class="control" >
+
+
+		<div class="topControl">
+			<div class="progress">
+				<span style="width: 100%;" class="bufferBar"></span>
+				<span style="width: 1%;" class="timeBar"></span>
+				<a href="notyet.html" id="bolinha" title = "Assistir: Tipos de Crise"><span  class="bolinha"></span>
+				<div class="bolinha preview"><div class="link"></div></div></a>
+				<div id="transp" class="bolinha preview"></div>
+			</div>
+		</div>
+		
+		<div class="btmControl">
+			<div class="btnPlay btn paused" title="Play/Pause"></div>
+     
+      <div class="sound sound2 btn som" title="Mute/Unmute sound"></div>
+      <div class="volume som" title="Set volume">
+        <span style="width: 70%; background-color:#eee;
+	z-index:10;" class="volumeBar"></span>
+	<span style=" display:block;	height:100%;	position:absolute; top:0;	left:0; width: 100%; background-color:#ff0000; z-index:9; border-radius: 10px;"></span></div>
+	<div class="som" style="background-color:transparent; width: 10px; float: left;  height: 30px; margin-left: -10px;"></div>
+	
+      
+
+			<div class="spdText btn">Webdocumentario Epilepsia - Infancia</div>
+			
+			<div class="btnFS btn" title="Tela Cheia"></div>
+			<div class="btnLight lighton btn" title="Configuracoes"></div>
+		<div id="config">
+        <div class="configurar"><span>Qualidade</span> <span class="configfig" id="qual" style="padding-left: 20px;">       720p</span></div>
+        <div class="configurar"><span>Velocidade</span> <span class="configfig" id="vel" style="padding-left: 10px;">     1x</span></div>
+      </div>
+             <div id="qualidade">
+          <div class="configurar"><span class="configfig" id="voltarqual">voltar</span></div>
+          <div class="configurar"><span class="configfig" id="720p">720p</span></div>
+          <div class="configurar"><span class="configfig" id="360p">360p</span></div></div>
+        <div id="velocidade">
+          <div class="configurar"><span class="configfig" id="voltarvel">voltar</span></div>
+          <div class="configurar"><span class="configfig" id="05x">0.5x</span></div>
+          <div class="configurar"><span class="configfig selected" id="1x">1x</span></div>
+          <div class="configurar"><span class="configfig" id="125x">1.25x</span></div>
+          <div class="configurar"><span class="configfig" id="15x">1.5x</span></div>
+          <div class="configurar"><span class="configfig" id="2x">2x</span></div>
+      </div>
+
+      <div class="btn" id="time">
+        <span class="current">00:04</span> / 
+        <span class="duration">00:05</span> 
+			</div>
+
+				
+			</div>
+		</div>
+
+		<div class="barralateral">
+<a href="index.html"  title="Pagina Inicial"><div class="home btn" ></div></a>
+<div class="mochila btn" title="Inventário"></div>
+<div class="vidmochila content mCustomScrollbar light _mCS_2">
+ <div class="configmochila" style="border-top-left-radius: 15px; border-top-right-radius: 15px;"><p class="configfig" id="inventario" style="font-size: 16px;">INVENTÁRIO</p></div>
+          <div class="configmochila" ><p class="configfig" id="entenda" >Entenda a Epilepsia</p></div>
+          <div class="vidinvent"><a href="notyet.html" id="bolinha" title = "Assistir: Tipos de Crise"><div class="link bolinha vid1"></div></a></div>
+          <div class="configmochila" style="margin-top: 75px"><p class="configfig" id="infancia" >Infância</p></div>
+			<div class="configmochila"><p class="configfig" id="juventude" >Juventude</p></div>
+      <div class="configmochila"><p class="configfig" id="adulta" >Idade Adulta</p></div>
+      <div class="configmochila" style="margin-bottom: 0px"><p class="configfig" id="velhice" >Velhice</p></div>
+
+
+         
+         </div>
+<div class="share btn" title="Compartilhar"></div>
+<div class="botoes">
+<div class="twitter btn"></div>
+<div class="facebook btn"></div>
+<div class="google btn"></div></div>
+
+</div>
+
+		
+
+	</div>
+
+            </div>
+
+
+	
+	<div style="display: none;" class="loading"></div>
+</div>
+
+</section>
+
+<script src="js/corrigirquadrados.js"></script>
+<script type="text/javascript">
+
+$(window).bind('resize', function () { 
+
+    corrigirquadrados();
+
+});
+
+
+</script>
+
+
+  
+    
+  
+ 
+  
+  <!-- Google CDN jQuery with fallback to local -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="/js/minified/jquery-1.11.0.min.js"><\/script>')</script>
+  
+  <!-- Google CDN jQuery UI with fallback to local -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+  <script>window.jQuery.ui || document.write('<script src="/js/minified/jquery-ui-1.10.4.min.js"><\/script>')</script>
+  
+  <!-- custom scrollbar plugin -->
+  <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+  
+  <script>
+    (function($){
+      $(window).on("load",function(){
+        
+        $(".content").mCustomScrollbar();
+        });
+        
+
+      });
+    })(jQuery);
+  </script>
+
+</body></html>

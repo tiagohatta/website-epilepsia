@@ -1,0 +1,17 @@
+body, html {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+#landscape {
+    display: block;
+}
+
+#portrait {
+    display: none;
+}
+
+image {
+    overflow:visible;
+}
