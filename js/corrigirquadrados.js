@@ -1,4 +1,6 @@
-
+$(window).bind('resize', function () { 
+  corrigirquadrados();
+});
 
 function corrigirquadrados(){
 var video = $('.myVideo');

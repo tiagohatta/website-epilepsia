@@ -47,16 +47,16 @@ else {
 
 
 function desativardivs(){
-         document.getElementById("selec2").className = 'ble';
-         document.getElementById("selec3").className = 'ble';
-         document.getElementById("selec4").className = 'ble';
-         document.getElementById("selec5").className = 'ble';
-         document.getElementById("selec6").className = 'ble';
-         document.getElementById("selec7").className = 'ble';
-         document.getElementById("selec8").className = 'ble';
-         document.getElementById("selec9").className = 'ble';
-         document.getElementById("fim").className ="ble";
-         document.getElementById("voltarinicio").className = 'ble';
+         document.getElementById("selec2").className = 'option1';
+         document.getElementById("selec3").className = 'option1';
+         document.getElementById("selec4").className = 'option1';
+         document.getElementById("selec5").className = 'option1';
+         document.getElementById("selec6").className = 'option1';
+         document.getElementById("selec7").className = 'option1';
+         document.getElementById("selec8").className = 'option1';
+         document.getElementById("selec9").className = 'option1';
+         document.getElementById("fim").className ="option1";
+         document.getElementById("voltarinicio").className = 'option1';
 }
 
 
@@ -78,11 +78,12 @@ function desativardivs(){
 		//set video properties
 		$('.current').text(timeFormat(0));
 		$('.duration').text(timeFormat(video[0].duration));
-		var cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)volume\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+		/*var cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)volume\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+		console.log("cookievalue="+cookieValue)
 		cookieValue=cookieValue/100;
 		updateVolume(0, cookieValue);
-		console.log("cookievalue="+cookieValue);
-			
+		;
+		*/	
 		//start to get video buffering data 
 		setTimeout(startBuffer, 150);
 		
@@ -170,14 +171,14 @@ function goActive() {
 
 	if (document.title === "Infancia"){
 if ((currentPos >= 20 ) && (currentPos <33)){
-             document.getElementById("selec6").className = 'bla';
-             document.getElementById("selec7").className = 'bla';
+             document.getElementById("selec6").className = 'option2';
+             document.getElementById("selec7").className = 'option2';
 	}
 
 else if ((currentPos >= 10) && (currentPos <15)){
 $('.preview').css({"display": "block"});
-             document.getElementById("selec6").className = 'ble';
-             document.getElementById("selec7").className = 'ble';
+             document.getElementById("selec6").className = 'option1';
+             document.getElementById("selec7").className = 'option1';
              $('.control').stop().animate({'opacity':80}, 500);
 				$('.barralateral').stop().animate({'opacity':80}, 500);
              window.setTimeout(goInactive, 5000);
@@ -185,8 +186,8 @@ $('.preview').css({"display": "block"});
 }
 
 	else if ((currentPos < 10) || ((currentPos >= 15) && (currentPos <20))) { 
-             document.getElementById("selec6").className = 'ble';
-             document.getElementById("selec7").className = 'ble';
+             document.getElementById("selec6").className = 'option1';
+             document.getElementById("selec7").className = 'option1';
              
 	}
 
@@ -194,23 +195,23 @@ $('.preview').css({"display": "block"});
 
 	else if (document.title === "Juventude"){
 if ((currentPos >= 41 ) && (currentPos <=65)){
-             document.getElementById("selec8").className = 'bla';
-             document.getElementById("selec9").className = 'bla';
+             document.getElementById("selec8").className = 'option2';
+             document.getElementById("selec9").className = 'option2';
 	}
 
 	else{ 
-             document.getElementById("selec8").className = 'ble';
-             document.getElementById("selec9").className = 'ble';
+             document.getElementById("selec8").className = 'option1';
+             document.getElementById("selec9").className = 'option1';
 	}
 
  	}
 
 else if (document.title === "Juventude 1"){
 	if (currentPos < 70){
-		document.getElementById("proxjor").className = 'ble';
+		document.getElementById("proxjor").className = 'option1';
 	}
 	else {
-		document.getElementById("proxjor").className = 'bla';
+		document.getElementById("proxjor").className = 'option2';
     
  	}
  }
@@ -218,20 +219,20 @@ else if (document.title === "Juventude 1"){
 else if (document.title === "Infancia 2x"){
 	console.log ("infancia 2x");
 	if (currentPos < 41){
-		document.getElementById("proxjor").className = 'ble';
+		document.getElementById("proxjor").className = 'option1';
 	}
 	else {
-		document.getElementById("proxjor").className = 'bla';
+		document.getElementById("proxjor").className = 'option2';
     
  	}
  }
 
  else if (document.title === "Infancia 2y"){
 	if (currentPos < 31){
-		document.getElementById("proxjor").className = 'ble';
+		document.getElementById("proxjor").className = 'option1';
 	}
 	else {
-		document.getElementById("proxjor").className = 'bla';
+		document.getElementById("proxjor").className = 'option2';
     
  	}
  }
@@ -241,11 +242,11 @@ else if (document.title === "Infancia 2x"){
 
 else if (document.title === "Not Yet"){
 if ((currentPos >= 0 ) && (currentPos <=12)){
-             document.getElementById("voltarinicio").className = 'bla';
+             document.getElementById("voltarinicio").className = 'option2';
 	}
 
 	else{ 
-             document.getElementById("voltarinicio").className = 'ble';
+             document.getElementById("voltarinicio").className = 'option1';
 	}
 
 	}
@@ -254,41 +255,24 @@ if ((currentPos >= 0 ) && (currentPos <=12)){
 else if (document.title === "Intro"){
 	if ((currentPos >= 15 ) && (currentPos <=25)){
 
-		 document.getElementById("selec2").className = 'bla';
-             document.getElementById("selec3").className = 'bla';
-             document.getElementById("selec4").className = 'bla';
-             document.getElementById("selec5").className = 'bla';
-             document.getElementById("selec6").className = 'bla';
-             document.getElementById("selec7").className = 'bla';
+		 document.getElementById("selec2").className = 'option2';
+             document.getElementById("selec3").className = 'option2';
+             document.getElementById("selec4").className = 'option2';
+             document.getElementById("selec5").className = 'option2';
+             document.getElementById("selec6").className = 'option2';
+             document.getElementById("selec7").className = 'option2';
 	}
 
 	else{ 
-		document.getElementById("selec2").className = 'ble';
-             document.getElementById("selec3").className = 'ble';
-             document.getElementById("selec4").className = 'ble';
-             document.getElementById("selec5").className = 'ble';
-             document.getElementById("selec6").className = 'ble';
-             document.getElementById("selec7").className = 'ble';
+		document.getElementById("selec2").className = 'option1';
+             document.getElementById("selec3").className = 'option1';
+             document.getElementById("selec4").className = 'option1';
+             document.getElementById("selec5").className = 'option1';
+             document.getElementById("selec6").className = 'option1';
+             document.getElementById("selec7").className = 'option1';
 	}
 }
 
-
-
-
-
-/*else if (param.id === "v_ep6"){
-	if ((currentPos >= 15 ) && (currentPos <=25)){
-
-		 document.getElementById("selec8").className = 'bla';
-             document.getElementById("selec9").className = 'bla';
-	}
-
-	else{ 
-		document.getElementById("selec8").className = 'ble';
-             document.getElementById("selec9").className = 'ble';
-	}
-
-} */
 	});
 	
 	//CONTROLS EVENTS

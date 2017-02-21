@@ -1,0 +1,349 @@
+body {
+	margin: 0;
+    padding:0;
+	background-color: black;
+}
+
+p {
+	font-size: 13px;
+	text-align: center;
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+#wrapper{
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	overflow: hidden;
+	position: absolute;
+
+}
+
+/* video container */
+.myVideo{
+    height: 100%;
+    width: 100%;
+    
+}
+
+.video-container{
+    height: 100%;
+    width: 100%;
+}
+
+.videoContainer{
+	height: 100%;
+    width: 100%;
+	background:c193eb;
+
+}
+
+/* the dashed boxes on the video for the user choice */
+.option2{
+    display: inline;
+    cursor: pointer;
+    position: absolute;
+    border-style: dashed;
+    border-color: #000000;
+    z-index: 1;
+}
+
+.option1{
+    display:none;
+    position: absolute;
+    border-style: dashed;
+    border-color: #000000;
+    z-index: 1;
+}
+
+/* controls bar */
+.control{
+	color:#ccc;
+	position:absolute;
+	left:0;
+	right: 0;
+	margin:auto;
+	width:80%;
+	z-index:5;
+	display:none;
+	min-width: 600px;
+}
+
+
+
+/* control top part */
+.topControl{
+	height:11px;
+	border-radius: 10px;
+	margin-bottom: -1px;
+}
+
+/* control bottom part */
+.btmControl{
+	clear:both;
+	background: #1F1F1F; /* fallback */
+	background:-moz-linear-gradient(top,#242424 50%,#1F1F1F 50%,#171717 100%);
+	background:-webkit-linear-gradient(top,#242424 50%,#1F1F1F 50%,#171717 100%);
+	background:-o-linear-gradient(top,#242424 50%,#1F1F1F 50%,#171717 100%);
+	border-radius: 10px;
+	height: 40px;
+}
+
+.control div.btn {
+	float:left;
+	width:34px;
+	height:30px;
+	padding:0 5px;
+	border-right:1px solid #404040;
+	cursor:pointer;
+	margin-top: 5px;
+}
+
+.control div.text{
+	font-size:12px;
+	font-weight:bold;
+	line-height:30px;
+	text-align:center;
+	font-family:verdana;
+	width:20px;
+	border:none;
+	color:#777;
+}
+
+/* control's buttons */
+.control div.btnPlay{
+	background:url("../images/control.png") no-repeat 0 0;
+}
+
+.control div.paused{
+	background:url("../images/control.png") no-repeat 0 -30px;
+}
+
+.control div.sound{
+	background:url("../images/control.png") no-repeat -88px -30px;
+	border: none;
+}
+
+.control div.spdText{
+	border:none;
+	font-size:14px;
+	line-height:30px;
+	font-style:italic;
+	width: auto;
+	margin-left: 5px;
+}
+
+.control div.selected{
+	font-size:15px;
+	color:#ccc;
+}
+
+.control div.sound2{
+	background:url("../images/control.png") no-repeat -88px -60px !important;
+border: none;
+}
+
+.control div.muted{
+	background:url("../images/control.png") no-repeat -88px 0 !important;
+}
+
+.control div.btnFS{
+	background:url("../images/control.png") no-repeat -44px 0;
+	float:right;
+	border-right: none !important;
+}
+
+.control div.FSbtn{
+	background:url("../images/control.png") no-repeat -44px 0;
+	float:right;
+	border-right: none !important;
+}
+
+.control div.btnLight{
+	background:url("../images/control.png") no-repeat -44px -60px;
+	border-left:1px solid #404040;
+	float:right;
+}
+
+.control div.lighton{
+	background:url("../images/control.png") no-repeat -44px -30px !important;
+}
+
+/* Progress bar */
+.progress {
+	width:100%;
+	height:10px;
+	position:relative;
+	float:left;
+	cursor:pointer;
+	background: #444; /* fallback */
+	background:-moz-linear-gradient(top,#666,#333);
+	background:-webkit-linear-gradient(top,#666,#333);
+	background:-o-linear-gradient(top,#666,#333);
+	box-shadow:0 2px 3px #333 inset;
+	-moz-box-shadow:0 2px 3px #333 inset;
+	-webkit-box-shadow:0 2px 3px #333 inset;
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+}
+
+.progress span {
+	height:100%;
+	position:absolute;
+	top:0;
+	left:0;
+	display:block;
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+}
+
+.timeBar{
+    width: 1%;
+	z-index:10;
+	width:0;
+	background: #3FB7FC; /* fallback */
+	background:-moz-linear-gradient(top,#A0DCFF 50%,#3FB7FC 50%,#16A9FF 100%);
+	background:-webkit-linear-gradient(top,#A0DCFF 50%,#3FB7FC 50%,#16A9FF 100%);
+	background:-o-linear-gradient(top,#A0DCFF 50%,#3FB7FC 50%,#16A9FF 100%);
+	box-shadow:0 0 1px #fff;
+	-moz-box-shadow:0 0 1px #fff;
+	-webkit-box-shadow:0 0 1px #fff;
+}
+
+.bufferBar{
+    width: 100%;
+	z-index:5;
+	width:0;
+	background: #777;
+	background:-moz-linear-gradient(top,#999,#666);
+	background:-webkit-linear-gradient(top,#999,#666);
+	background:-o-linear-gradient(top,#999,#666);
+	box-shadow:2px 0 5px #333;
+	-moz-box-shadow:2px 0 5px #333;
+	-webkit-box-shadow:2px 0 5px #333;
+}
+
+/* time and duration */
+#time{
+	float: right;
+	width:auto;
+	text-align:center;
+	font-size:11px;
+	line-height:30px;
+	margin-right: 5px;
+	border-right: none;
+}
+
+.current, .duration {
+	width: auto !important;
+}
+
+/* volume bar */
+.volume{
+	position:relative;
+	cursor:pointer;
+	width:70px;
+	height:10px;
+	float: left;
+	margin-top:15px;
+	margin-right:10px;
+	display: none;
+}
+
+.volumeBar{
+    width: 70%;
+	display:block;
+	height:100%;
+	position:absolute;
+	top:0;
+	left:0;
+	background-color:#eee;
+	z-index:10;
+	border-radius: 10px;
+}
+
+.volumeEmpty{
+    display:block;	
+    height:100%;	
+    position:absolute; 
+    top:0;	
+    left:0; 
+    width: 100%; 
+    background-color:#ff0000; 
+    z-index:9; 
+    border-radius: 10px;
+
+}
+
+/* configuration's button */
+#config{
+    z-index: 15;
+    width: 160px;
+    height: 40px;
+    border-radius: 15px;
+	background: rgba(48,48,48,1);
+    background: -moz-linear-gradient(left, rgba(48,48,48,1) 0%, rgba(31,31,31,1) 57%, rgba(23,23,23,1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(48,48,48,1)), color-stop(57%, rgba(31,31,31,1)), color-stop(100%, rgba(23,23,23,1)));
+    background: -webkit-linear-gradient(left, rgba(48,48,48,1) 0%, rgba(31,31,31,1) 57%, rgba(23,23,23,1) 100%);
+    background: -o-linear-gradient(left, rgba(48,48,48,1) 0%, rgba(31,31,31,1) 57%, rgba(23,23,23,1) 100%);
+    background: -ms-linear-gradient(left, rgba(48,48,48,1) 0%, rgba(31,31,31,1) 57%, rgba(23,23,23,1) 100%);
+    background: linear-gradient(to right, rgba(48,48,48,1) 0%, rgba(31,31,31,1) 57%, rgba(23,23,23,1) 100%);
+	box-shadow:2px 0 5px #333;
+	-moz-box-shadow:2px 0 5px #333;
+	-webkit-box-shadow:2px 0 5px #333;
+	top: -43px;
+	left: 640px;
+	position: absolute;
+	display: none;
+	cursor:pointer;
+}
+
+
+.configurar{
+	padding-left: 10px;
+}
+
+.configfig{
+	cursor: pointer;
+	text-align: center;
+}
+
+.configurar:hover{
+	background-color: #000;
+    border-radius: 15px;
+}
+
+
+#qualidade, #velocidade {
+    z-index: 15;
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+	background: rgba(48,48,48,1);
+    background: -moz-linear-gradient(left, rgba(48,48,48,1) 0%, rgba(31,31,31,1) 57%, rgba(23,23,23,1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(48,48,48,1)), color-stop(57%, rgba(31,31,31,1)), color-stop(100%, rgba(23,23,23,1)));
+    background: -webkit-linear-gradient(left, rgba(48,48,48,1) 0%, rgba(31,31,31,1) 57%, rgba(23,23,23,1) 100%);
+    background: -o-linear-gradient(left, rgba(48,48,48,1) 0%, rgba(31,31,31,1) 57%, rgba(23,23,23,1) 100%);
+    background: -ms-linear-gradient(left, rgba(48,48,48,1) 0%, rgba(31,31,31,1) 57%, rgba(23,23,23,1) 100%);
+    background: linear-gradient(to right, rgba(48,48,48,1) 0%, rgba(31,31,31,1) 57%, rgba(23,23,23,1) 100%);
+	box-shadow:2px 0 5px #333;
+	-moz-box-shadow:2px 0 5px #333;
+	-webkit-box-shadow:2px 0 5px #333;
+	top: -63px;
+	left: 740px;
+	position: absolute;
+	display: none;
+	cursor:pointer;
+
+}
+
+#velocidade {
+	height: 120px;
+	top: -123px;
+}
+
+
+
