@@ -49,6 +49,7 @@ p {
     z-index: 1;
 }
 
+/* element not displayed */
 .option1{
     display:none;
     position: absolute;
@@ -344,6 +345,3 @@ border: none;
 	height: 120px;
 	top: -123px;
 }
-
-
-

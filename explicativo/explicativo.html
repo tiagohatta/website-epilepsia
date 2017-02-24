@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html"; charset="utf-8">
+    
+    <link rel="stylesheet" href="../css/videoPage.css">
+    
+    <script src="../js/jquery.js"></script>
+    <script src="../js/video.js"></script>
+   
+    <title> O que é Epilepsia </title>
+
+    <link rel="shortcut icon" href="../images/favicon.ico" >
+
+  </head>
+  
+  <body>
+
+    <div id="wrapper">
+      <div class="videoContainer">
+        <div id="explicativo" class="video-container" >
+            <video controls autoplay id="v_explicativo" width="960" height="540" class="myVideo">
+              <source  id="mp4video" src="videos/o que é.mp4" >
+              <p>Seu navegador não suporta o elemento vídeo. Por favor, atualize a versão de seu navegador.<p>
+            </video>
+        </div>
+
+      </div>
+    </div>
+  
+      <!-- configuration of the custom video player -->
+    <div class="control" >
+
+      <div class="topControl">
+          <!-- progress bar -->
+          <div class="progress">
+            <span class="bufferBar"></span>
+            <span class="timeBar"></span>
+          </div>
+      </div>
+
+      <div class="btmControl">
+        <!-- play/pause button-->
+        <div class="btnPlay btn paused" title="Play/Pause"></div>
+        
+        <!-- sound button-->
+        <div class="sound sound2 btn som" title="Mute/Unmute sound"></div>
+        <div class="volume som" title="Set volume">
+          <span class="volumeBar"></span>
+          <span class="volumeEmpty"></span>
+        </div>
+        <div class="som" style="background-color:transparent; width: 10px; float: left;  height: 30px; margin-left: -10px;"></div>
+
+        <!-- simple text on video player bar -->
+        <div class="spdText btn">Webdocumentario Epilepsia - O que é Epilepsia?</div>
+
+        <!-- fullscreen button-->
+        <div class="btnFS btn" title="Tela Cheia"></div>
+
+        <!-- settings button-->
+        <div class="btnLight lighton btn" title="Configuracoes"></div>
+        <div id="config">
+          <div class="configurar"><span>Qualidade</span> <span class="configfig" id="qual" style="padding-left: 20px;">       720p</span></div>
+          <div class="configurar"><span>Velocidade</span> <span class="configfig" id="vel" style="padding-left: 10px;">     1x</span></div>
+        </div>
+        <div id="qualidade">
+          <div class="configurar"><span class="configfig" id="voltarqual">voltar</span></div>
+          <div class="configurar"><span class="configfig" id="720p">720p</span></div>
+          <div class="configurar"><span class="configfig" id="360p">360p</span></div></div>
+        <div id="velocidade">
+          <div class="configurar"><span class="configfig" id="voltarvel">voltar</span></div>
+          <div class="configurar"><span class="configfig" id="05x">0.5x</span></div>
+          <div class="configurar"><span class="configfig selected" id="1x">1x</span></div>
+          <div class="configurar"><span class="configfig" id="125x">1.25x</span></div>
+          <div class="configurar"><span class="configfig" id="15x">1.5x</span></div>
+          <div class="configurar"><span class="configfig" id="2x">2x</span></div>
+        </div>
+        
+        <!-- Time indicator -->
+        <div class="btn" id="time">
+          <span class="current">00:04</span> / 
+          <span class="duration">00:05</span> 
+			  </div>
+
+      </div>
+    </div>
+
+  </body>
+</html>

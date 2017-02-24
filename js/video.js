@@ -1,5 +1,4 @@
 $(window).bind('resize', function () { 
-
     corrigirquadrados();
     posconfig();
   
@@ -7,7 +6,6 @@ $(window).bind('resize', function () {
 
 $(document).ready(function(){
 	customcontrols();
-
 	corrigirquadrados();
 	posconfig();
 
@@ -15,66 +13,65 @@ $(document).ready(function(){
 });
 
 function posconfig(){
-  var width = $(window).width();
-if (width > 750){
-console.log("posconfig rodando!!! width = "+ width);
-var x = (440 + ((width-750)*490/610));
-$('#config').css({
-  'left':x
-});
-$('#qualidade').css({
-  'left':x+100
-});
+	var width = $(window).width();
+	if (width > 750){
+		var x = (440 + ((width-750)*490/610));
+		
+		$('#config').css({
+		'left':x
+		});
+		
+		$('#qualidade').css({
+		'left':x+100
+		});
 
-$('#velocidade').css({
-  'left':x+100
-});
-}
+		$('#velocidade').css({
+		'left':x+100
+		});
+	}
+	else {
+		$('#config').css({
+		'left':440
+		});
 
-else {
-  $('#config').css({
-  'left':440
-});
-  $('#qualidade').css({
-  'left':540
-});
-  $('#velocidade').css({
-  'left':540
-});
-}
+		$('#qualidade').css({
+		'left':540
+		});
 
+		$('#velocidade').css({
+		'left':540
+		});
+	}
 }
 
 
 function desativardivs(){
-         document.getElementById("selec2").className = 'option1';
-         document.getElementById("selec3").className = 'option1';
-         document.getElementById("selec4").className = 'option1';
-         document.getElementById("selec5").className = 'option1';
-         document.getElementById("selec6").className = 'option1';
-         document.getElementById("selec7").className = 'option1';
-         document.getElementById("selec8").className = 'option1';
-         document.getElementById("selec9").className = 'option1';
-         document.getElementById("fim").className ="option1";
-         document.getElementById("voltarinicio").className = 'option1';
+	document.getElementById("selec2").className = 'option1';
+	document.getElementById("selec3").className = 'option1';
+	document.getElementById("selec4").className = 'option1';
+	document.getElementById("selec5").className = 'option1';
+	document.getElementById("selec6").className = 'option1';
+	document.getElementById("selec7").className = 'option1';
+	document.getElementById("selec8").className = 'option1';
+	document.getElementById("selec9").className = 'option1';
+	document.getElementById("fim").className ="option1";
+	document.getElementById("voltarinicio").className = 'option1';
 }
 
-
-	function customcontrols()
-	{
-
+function customcontrols(){
 	var video = $(".myVideo");
+
 	//remove default control when JS loaded
 	video[0].removeAttribute("controls");
 	$('.control').show().css({'bottom': 50});
 	$('.barralateral').show();
 	$('.loading').fadeIn(500);
+
 	//$('.caption').fadeIn(500);
 	var container = $(".videoContainer");
- 
+
 	//before everything get started
-	video.on('loadedmetadata', function() {
-				
+	video.on('loadedmetadata', function() {				
 		//set video properties
 		$('.current').text(timeFormat(0));
 		$('.duration').text(timeFormat(video[0].duration));
@@ -86,67 +83,62 @@ function desativardivs(){
 		*/	
 		//start to get video buffering data 
 		setTimeout(startBuffer, 150);
-		
 	});
-	
+		
+	$(window).keypress(function(e) {
+		var video = document.getElementById("vid");
+		if (e.which == 32) {
+		playpause();
+		}
+	});
 
-$(window).keypress(function(e) {
-  var video = document.getElementById("vid");
-  if (e.which == 32) {
-   playpause();
-  }
-});
+	$(video).on("click", function(){
+		playpause();
+	});
 
-$(video).on("click", function(){
-playpause();
-
-});
-	//INATIVIDADe
+		//INATIVIDADe
 	var timeoutID;
-function setup() {
-    this.addEventListener("mousemove", resetTimer, false);
-    this.addEventListener("mousedown", resetTimer, false);
-    this.addEventListener("keypress", resetTimer, false);
-    this.addEventListener("DOMMouseScroll", resetTimer, false);
-    this.addEventListener("mousewheel", resetTimer, false);
-    this.addEventListener("touchmove", resetTimer, false);
-    this.addEventListener("MSPointerMove", resetTimer, false);
- 
-    startTimer(); 
-}
-setup();
- 
-function startTimer() {
-    // wait 2 seconds before calling goInactive
-     timeoutID = window.setTimeout(goInactive, 1750);
-}
+	
+	function setup() {
+		this.addEventListener("mousemove", resetTimer, false);
+		this.addEventListener("mousedown", resetTimer, false);
+		this.addEventListener("keypress", resetTimer, false);
+		this.addEventListener("DOMMouseScroll", resetTimer, false);
+		this.addEventListener("mousewheel", resetTimer, false);
+		this.addEventListener("touchmove", resetTimer, false);
+		this.addEventListener("MSPointerMove", resetTimer, false);
+		startTimer(); 
+	}
 
- 
-function resetTimer(e) {
-    window.clearTimeout(timeoutID);
- 
-    goActive();
-}
- 
-function goInactive() {
-    // do something
-     if ($('#config').css('display') == 'none' && $('.botoes').css('display') == 'none' && $('.vidmochila').css('display') == 'none'){
-     console.log("ok");
+	setup();
 
-				$('.control').stop().animate({'opacity':0}, 500);
-				$('.barralateral').stop().animate({'opacity':0}, 500);
+	function startTimer() {
+		// wait 2 seconds before calling goInactive
+		timeoutID = window.setTimeout(goInactive, 1750);
+	}
+
+	function resetTimer(e) {
+		window.clearTimeout(timeoutID);
+		goActive();
+	}
+
+	function goInactive() {
+		// do something
+		if ($('#config').css('display') == 'none' && $('.botoes').css('display') == 'none' && $('.vidmochila').css('display') == 'none'){
+			$('.control').stop().animate({'opacity':0}, 500);
+			$('.barralateral').stop().animate({'opacity':0}, 500);
 			//	$('.caption').stop().animate({'opacity':0}, 500);
 			$('.preview').css({"display": "none"});
-			}
-}
- 
-function goActive() {
-    // do something
-			$('.control').stop().animate({'opacity':80}, 500);
-				$('.barralateral').stop().animate({'opacity':80}, 500);
-			//$('.caption').stop().animate({'opacity':100}, 500);
-    startTimer();
-}
+		}
+	}
+
+	function goActive() {
+		// do something
+		$('.control').stop().animate({'opacity':80}, 500);
+		$('.barralateral').stop().animate({'opacity':80}, 500);
+		//$('.caption').stop().animate({'opacity':100}, 500);
+		startTimer();
+	}
 
 
 	//display video buffering bar
@@ -169,139 +161,95 @@ function goActive() {
 		$('.timeBar').css('width',perc+'%');	
 		$('.current').text(timeFormat(currentPos));
 
-	if (document.title === "Infancia"){
-if ((currentPos >= 20 ) && (currentPos <33)){
-             document.getElementById("selec6").className = 'option2';
-             document.getElementById("selec7").className = 'option2';
-	}
-
-else if ((currentPos >= 10) && (currentPos <15)){
-$('.preview').css({"display": "block"});
-             document.getElementById("selec6").className = 'option1';
-             document.getElementById("selec7").className = 'option1';
-             $('.control').stop().animate({'opacity':80}, 500);
+		if (document.title === "Infancia"){
+			if ((currentPos >= 20 ) && (currentPos <33)){
+				document.getElementById("selec6").className = 'option2';
+				document.getElementById("selec7").className = 'option2';
+			}
+			else if ((currentPos >= 10) && (currentPos <15)){
+				$('.preview').css({"display": "block"});
+				document.getElementById("selec6").className = 'option1';
+				document.getElementById("selec7").className = 'option1';
+				$('.control').stop().animate({'opacity':80}, 500);
 				$('.barralateral').stop().animate({'opacity':80}, 500);
-             window.setTimeout(goInactive, 5000);
+				window.setTimeout(goInactive, 5000);
+			}
+			else if ((currentPos < 10) || ((currentPos >= 15) && (currentPos <20))) { 
+				document.getElementById("selec6").className = 'option1';
+				document.getElementById("selec7").className = 'option1';		
+			}
 
-}
+		}
+		else if (document.title === "Juventude"){
+			if ((currentPos >= 41 ) && (currentPos <=65)){
+				document.getElementById("selec8").className = 'option2';
+				document.getElementById("selec9").className = 'option2';
+			}
+			else{ 
+				document.getElementById("selec8").className = 'option1';
+				document.getElementById("selec9").className = 'option1';
+			}
+		}
+		else if (document.title === "Not Yet"){
+			if ((currentPos >= 0 ) && (currentPos <=12)){
+				document.getElementById("voltarinicio").className = 'option2';
+			}
+			else{ 
+				document.getElementById("voltarinicio").className = 'option1';
+			}
 
-	else if ((currentPos < 10) || ((currentPos >= 15) && (currentPos <20))) { 
-             document.getElementById("selec6").className = 'option1';
-             document.getElementById("selec7").className = 'option1';
-             
-	}
-
-	}
-
-	else if (document.title === "Juventude"){
-if ((currentPos >= 41 ) && (currentPos <=65)){
-             document.getElementById("selec8").className = 'option2';
-             document.getElementById("selec9").className = 'option2';
-	}
-
-	else{ 
-             document.getElementById("selec8").className = 'option1';
-             document.getElementById("selec9").className = 'option1';
-	}
-
- 	}
-
-else if (document.title === "Juventude 1"){
-	if (currentPos < 70){
-		document.getElementById("proxjor").className = 'option1';
-	}
-	else {
-		document.getElementById("proxjor").className = 'option2';
-    
- 	}
- }
-
-else if (document.title === "Infancia 2x"){
-	console.log ("infancia 2x");
-	if (currentPos < 41){
-		document.getElementById("proxjor").className = 'option1';
-	}
-	else {
-		document.getElementById("proxjor").className = 'option2';
-    
- 	}
- }
-
- else if (document.title === "Infancia 2y"){
-	if (currentPos < 31){
-		document.getElementById("proxjor").className = 'option1';
-	}
-	else {
-		document.getElementById("proxjor").className = 'option2';
-    
- 	}
- }
-
-
-
-
-else if (document.title === "Not Yet"){
-if ((currentPos >= 0 ) && (currentPos <=12)){
-             document.getElementById("voltarinicio").className = 'option2';
-	}
-
-	else{ 
-             document.getElementById("voltarinicio").className = 'option1';
-	}
-
-	}
-
-
-else if (document.title === "Intro"){
-	if ((currentPos >= 15 ) && (currentPos <=25)){
-
-		 document.getElementById("selec2").className = 'option2';
-             document.getElementById("selec3").className = 'option2';
-             document.getElementById("selec4").className = 'option2';
-             document.getElementById("selec5").className = 'option2';
-             document.getElementById("selec6").className = 'option2';
-             document.getElementById("selec7").className = 'option2';
-	}
-
-	else{ 
-		document.getElementById("selec2").className = 'option1';
-             document.getElementById("selec3").className = 'option1';
-             document.getElementById("selec4").className = 'option1';
-             document.getElementById("selec5").className = 'option1';
-             document.getElementById("selec6").className = 'option1';
-             document.getElementById("selec7").className = 'option1';
-	}
-}
+		}
+		else if (document.title === "Intro"){
+			if ((currentPos >= 15 ) && (currentPos <=25)){
+				document.getElementById("selec2").className = 'option2';
+				document.getElementById("selec3").className = 'option2';
+				document.getElementById("selec4").className = 'option2';
+				document.getElementById("selec5").className = 'option2';
+				document.getElementById("selec6").className = 'option2';
+				document.getElementById("selec7").className = 'option2';
+			}
+			else{ 
+				document.getElementById("selec2").className = 'option1';
+				document.getElementById("selec3").className = 'option1';
+				document.getElementById("selec4").className = 'option1';
+				document.getElementById("selec5").className = 'option1';
+				document.getElementById("selec6").className = 'option1';
+				document.getElementById("selec7").className = 'option1';
+			}
+		}
 
 	});
-	
+		
 	//CONTROLS EVENTS
 	//video screen and play button clicked
-	video.on('click', function() {  fecharjanelas(); } );
-	$('.btnPlay').on('click', function() { playpause(); } );
+	video.on('click', function() { fecharjanelas(); } );
+		
+	$('.btnPlay').on('click', function() { 
+		playpause(); 
+	});
+	
 	var playpause = function() {
-
-			if($('#config').css('display') == 'block'){
-	$('#config').css({"display": "none"}); }
-
+		if($('#config').css('display') == 'block'){
+			$('#config').css({"display": "none"}); 
+		}
 		else if(video[0].paused || video[0].ended) {
 			$('.btnPlay').addClass('paused');
 			video[0].play();
-
-	$('#config').css({"display": "none"});
+			$('#config').css({"display": "none"});
 		}
 		else {
 			$('.btnPlay').removeClass('paused');
 			video[0].pause();
 		}
 	};
-	
+		
 	//speed changed
 	$('#05x').on('click', function() { fastfowrd(this, 0.5); });
 	$('#1x').on('click', function() { fastfowrd(this, 1); });
 	$('#125x').on('click', function() { fastfowrd(this, 1.25); });
 	$('#15x').on('click', function() { fastfowrd(this, 1.5); });
 	$('#2x').on('click', function() { fastfowrd(this, 2); });
+	
 	var fastfowrd = function(obj, spd) {
 		$('#vel').text(spd+'x');
 		$('#config').css({"display": "block"}); 
@@ -311,220 +259,184 @@ else if (document.title === "Intro"){
 
 	};
 
-	//quality changed
-
+		//quality changed
 	$('#720p').on('click', function() { 
 		$('#qual').text('720p');
 		video[0].pause();
 		$('#config').css({"display": "none"}); 
 		$('#qualidade').css({"display": "none"}); 
+		
 		var tempo = video[0].currentTime;
-		console.log("currentTime= "+ tempo);
+		
 		if (document.title === "Infancia"){	var num=2;}
-			else if (document.title === "Not Yet"){ var num=0;}
-			else if (document.title === "Infancia 2x"){ var num=3;}
-			else if (document.title === "Infancia 2y"){ var num=4;}
-			else if (document.title === "Juventude"){ var num=6;}
-			else if (document.title === "Juventude 1"){ var num=7;}
+		else if (document.title === "Not Yet"){ var num=0;}
+		else if (document.title === "Infancia 2x"){ var num=3;}
+		else if (document.title === "Infancia 2y"){ var num=4;}
+		else if (document.title === "Juventude"){ var num=6;}
+		else if (document.title === "Juventude 1"){ var num=7;}
+
 		$('#mp4video').attr("src", "videos/ep"+num+".mp4" );
 		$('#webmvideo').attr("src", "videos/ep"+num+".webm" );
+		
 		video[0].load();
 		video[0].currentTime = tempo;
 		video[0].play();
 
 	});
 
-		$('#360p').on('click', function() { 
+	$('#360p').on('click', function() { 
 		$('#qual').text('360p');
 		video[0].pause();
 		$('#config').css({"display": "none"}); 
 		$('#qualidade').css({"display": "none"}); 
 		var tempo = video[0].currentTime;
-		console.log("currentTime= "+ tempo);
+	
 		if (document.title === "Infancia"){	var num=2;}
-			else if (document.title === "Not Yet"){ var num=0;}
-			else if (document.title === "Infancia 2x"){ var num=3;}
-			else if (document.title === "Infancia 2y"){ var num=4;}
-			else if (document.title === "Juventude"){ var num=6;}
-			else if (document.title === "Juventude 1"){ var num=7;}
+		else if (document.title === "Not Yet"){ var num=0;}
+		else if (document.title === "Infancia 2x"){ var num=3;}
+		else if (document.title === "Infancia 2y"){ var num=4;}
+		else if (document.title === "Juventude"){ var num=6;}
+		else if (document.title === "Juventude 1"){ var num=7;}
+
 		$('#mp4video').attr("src", "videos/360p/ep"+num+".mp4" );
 		$('#webmvideo').attr("src", "videos/360p/ep"+num+".webm" );
 		video[0].load();
 		video[0].currentTime = tempo;
 		video[0].play();
-
 	});
-	
+		
 	//stop button clicked
 	$('.btnStop').on('click', function() {
 		$('.btnPlay').removeClass('paused');
 		updatebar($('.progress').offset().left);
 		video[0].pause();
 	});
-	
+		
 	//fullscreen button clicked
 	$('.btnFS').on('click', function()  {
-  if (!document.fullscreenElement &&    // alternative standard method
-      !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement ) {  // current working methods
-    if (document.documentElement.requestFullscreen) {
-      document.documentElement.requestFullscreen();
-    } else if (document.documentElement.msRequestFullscreen) {
-      document.documentElement.msRequestFullscreen();
-    } else if (document.documentElement.mozRequestFullScreen) {
-      document.documentElement.mozRequestFullScreen();
-    } else if (document.documentElement.webkitRequestFullscreen) {
-      document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
-    }
-    else{
-    	alert("Seu navegador não aceita o modo de Tela Cheia. :(")
-    }
-  } else {
-    if (document.exitFullscreen) {
-      document.exitFullscreen();
-    } else if (document.msExitFullscreen) {
-      document.msExitFullscreen();
-    } else if (document.mozCancelFullScreen) {
-      document.mozCancelFullScreen();
-    } else if (document.webkitExitFullscreen) {
-      document.webkitExitFullscreen();
-    }
-  }
-});
+		if (!document.fullscreenElement &&    // alternative standard method
+		!document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement ) {  // current working methods
+			if (document.documentElement.requestFullscreen) {
+			document.documentElement.requestFullscreen();
+			} else if (document.documentElement.msRequestFullscreen) {
+			document.documentElement.msRequestFullscreen();
+			} else if (document.documentElement.mozRequestFullScreen) {
+			document.documentElement.mozRequestFullScreen();
+			} else if (document.documentElement.webkitRequestFullscreen) {
+			document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+			}
+			else{
+				alert("Seu navegador não aceita o modo de Tela Cheia. :(")
+			}
+		} 
+		else {
+			if (document.exitFullscreen) {
+			document.exitFullscreen();
+			} else if (document.msExitFullscreen) {
+			document.msExitFullscreen();
+			} else if (document.mozCancelFullScreen) {
+			document.mozCancelFullScreen();
+			} else if (document.webkitExitFullscreen) {
+			document.webkitExitFullscreen();
+			}
+		}
+	});
 
 
-//função fechar janelas
-function fecharjanelas(){
-	if ($('#config').css('display') == 'none' && $('#legendas').css("display") == 'none' && $('#qualidade').css("display") == 'none' && $('#velocidade').css("display") == 'none' && $('.botoes').css("display") == 'none'  && $('.vidmochila').css("display") == 'none'){
-		console.log("todas janelas fechadas!!");
-		playpause();
+	//função fechar janelas
+	function fecharjanelas(){
+		if ($('#config').css('display') == 'none' && $('#legendas').css("display") == 'none' && 
+			$('#qualidade').css("display") == 'none' && $('#velocidade').css("display") == 'none' && 
+			$('.botoes').css("display") == 'none'  && $('.vidmochila').css("display") == 'none'){
+				playpause();
+		}
+		else {
+			$('#config').css({"display": "none"});
+			$('.btnLight').addClass("lighton");
+			$('#legendas').css({"display": "none"});
+			$('#qualidade').css({"display": "none"});
+			$('#velocidade').css({"display": "none"});
+			$('.botoes').css({"display": "none"});
+			$('.vidmochila').css({"display": "none"});
+
+			startTimer();
+		}
 	}
-	else {
-	$('#config').css({"display": "none"});
-	$('.btnLight').addClass("lighton");
-	$('#legendas').css({"display": "none"});
-	$('#qualidade').css({"display": "none"});
-	$('#velocidade').css({"display": "none"});
-	$('.botoes').css({"display": "none"});
-	$('.vidmochila').css({"display": "none"});
-
-	startTimer();
-	}
-
-
-}
 
 	//JANELA CONFIGURAÇOES
 	$('.btnLight').click(function() {
 
-if ($('#velocidade').css('display') == "block"){
-	$('#velocidade').css({'display': "none"});
+		if ($('#velocidade').css('display') == "block"){
+			$('#velocidade').css({'display': "none"});
+				$('#config').css({"display": "none"});
+			$('.btnLight').addClass("lighton");
+			startTimer();
+		}
+		else if ($('#qualidade').css('display') == "block"){
+			$('#qualidade').css({'display': "none"});
+			$('#config').css({"display": "none"});
+			$('.btnLight').addClass("lighton");
+			startTimer();
+		}
+
+		else if($('#config').css('display') == 'block'){
+			$('#config').css({"display": "none"});
+			$('.btnLight').addClass("lighton");
+			startTimer();
+		}
+		else{
+			$('#config').css({"display": "block"});
+			$('.btnLight').removeClass("lighton");
+		}
+	});
+
+	
+	$('#leg').click(function() {		
+		$('#legendas').css({"display": "block"});
 		$('#config').css({"display": "none"});
-	$('.btnLight').addClass("lighton");
-	startTimer();
-
-}
-
-else if ($('#qualidade').css('display') == "block"){
-	$('#qualidade').css({'display': "none"});
-	$('#config').css({"display": "none"});
-	$('.btnLight').addClass("lighton");
-	startTimer();
-
-}
-
-
-	else if($('#config').css('display') == 'block'){
-	$('#config').css({"display": "none"});
-	$('.btnLight').addClass("lighton");
-	startTimer();
-}
-
-
-else{
-$('#config').css({"display": "block"});
-$('.btnLight').removeClass("lighton");
-}
+	});
+	
+	$('#voltarleg').click(function() {
+		$('#legendas').css({"display": "none"});
+		$('#config').css({"display": "block"});
 	});
 
-	//
-
-$('#leg').click(function() {
-
-		
-$('#legendas').css({"display": "block"});
-$('#config').css({"display": "none"});
-
-});
-//
-
-$('#voltarleg').click(function() {
-
-		
-$('#legendas').css({"display": "none"});
-$('#config').css({"display": "block"});
-
+	
+	$('#voltarqual').click(function() {
+		$('#qualidade').css({"display": "none"});
+		$('#config').css({"display": "block"});
 	});
 
-//
-$('#voltarqual').click(function() {
-
-		
-$('#qualidade').css({"display": "none"});
-$('#config').css({"display": "block"});
-
+	$('#voltarvel').click(function() {			
+		$('#velocidade').css({"display": "none"});
+		$('#config').css({"display": "block"});
 	});
 
-//
-$('#voltarvel').click(function() {
-
-		
-$('#velocidade').css({"display": "none"});
-$('#config').css({"display": "block"});
-
+	$('#qual').click(function() {
+		if($('#qualidade').css('display') == 'none'){
+			$('#qualidade').css({"display": "block"});
+			$('#config').css({"display": "none"});
+		}
+		else {
+			$('#qualidade').css({"display": "none"});
+			startTimer();
+		}
 	});
 
-//
-
-
-$('#qual').click(function() {
-
-		if($('#qualidade').css('display') == 'none')
-{
-$('#qualidade').css({"display": "block"});
-$('#config').css({"display": "none"});
-}
-else {
-	$('#qualidade').css({"display": "none"});
-	startTimer();
-}
+	$('#vel').click(function() {
+		if($('#velocidade').css('display') == 'none'){
+			$('#velocidade').css({"display": "block"});
+			$('#config').css({"display": "none"});
+		}
+		else {
+			$('#velocidade').css({"display": "none"});
+			startTimer();
+		}
 	});
-
-//
-
-$('#vel').click(function() {
-
-		if($('#velocidade').css('display') == 'none')
-{
-$('#velocidade').css({"display": "block"});
-$('#config').css({"display": "none"});
-}
-else {
-	$('#velocidade').css({"display": "none"});
-	startTimer();
-}
-	});
-
-
-//
-
-
 
 	//JANELA COMPARTILHAMENTO
 	$('.share').click(function() {
-
-		if($('.botoes').css('display') == 'none')
-		{
-
+		if($('.botoes').css('display') == 'none'){
 			$('.vidmochila').css({"display": "none"});
 			$('.botoes').css({"display": "block"});
 		}
@@ -536,7 +448,6 @@ else {
 
 	//JANELA MOCHILA
 	$('.mochila').click(function() {
-
 		if($('.vidmochila').css('display') == 'none')
 		{
 			$('.botoes').css({"display": "none"});
@@ -560,9 +471,6 @@ else {
 		}
 	});
 
-
-	
-
 	//sound button clicked
 	$('.sound').click(function() {
 		video[0].muted = !video[0].muted;
@@ -574,51 +482,30 @@ else {
 			$('.volumeBar').css('width', video[0].volume*100+'%');
 		}
 	});
-	
-
-	//bolinha clicked
-
-
-	$('.bolinha').on('mouseenter', function() {
-
-		$(".preview").css({"display": "block"})
 		
-	} );
-
-	
-	$('.bolinha').on('mouseleave', function(){
-
-		$(".preview").css({"display": "none"})
-	});
 
 	//barravolume
-$('.som').on('mouseenter', function() {
-
+	$('.som').on('mouseenter', function() {
 		$(".volume").css({"display": "block"})
-		
-	} );
-
+	});
 	
 	$('.som').on('mouseleave', function(){
-
 		$(".volume").css({"display": "none"})
 	});
-
-
 
 	//VIDEO EVENTS
 	//video canplay event
 	video.on('canplay', function() {
 		$('.loading').fadeOut(100);
 	});
-	
+		
 	//video canplaythrough event
 	//solve Chrome cache issue
 	var completeloaded = false;
 	video.on('canplaythrough', function() {
 		completeloaded = true;
 	});
-	
+		
 	//video ended event
 	video.on('ended', function() {
 		$('.btnPlay').removeClass('paused');
@@ -632,7 +519,7 @@ $('.som').on('mouseenter', function() {
 			$('.loading').fadeIn(200);
 		}	
 	});
-	
+		
 	//video seeked event
 	video.on('seeked', function() { });
 	
@@ -648,17 +535,20 @@ $('.som').on('mouseenter', function() {
 		timeDrag = true;
 		updatebar(e.pageX);
 	});
+
 	$(document).on('mouseup', function(e) {
 		if(timeDrag) {
 			timeDrag = false;
 			updatebar(e.pageX);
 		}
 	});
+
 	$(document).on('mousemove', function(e) {
 		if(timeDrag) {
 			updatebar(e.pageX);
 		}
 	});
+
 	var updatebar = function(x) {
 		var progress = $('.progress');
 		
@@ -687,18 +577,20 @@ $('.som').on('mouseenter', function() {
 		$('.sound').removeClass('muted');
 		updateVolume(e.pageX);
 	});
+
 	$(document).on('mouseup', function(e) {
 		if(volumeDrag) {
 			volumeDrag = false;
 			updateVolume(e.pageX);
-
 		}
 	});
+
 	$(document).on('mousemove', function(e) {
 		if(volumeDrag) {
 			updateVolume(e.pageX);
 		}
 	});
+
 	var updateVolume = function(x, vol) {
 		var volume = $('.volume');
 		var percentage;
@@ -718,14 +610,15 @@ $('.som').on('mouseenter', function() {
 		if(percentage < 0) {
 			percentage = 0;
 		}
-		
+			
 		//update volume bar and video volume
 		$('.volumeBar').css('width',percentage+'%');	
 		video[0].volume = percentage / 100;
+		
 		// cookie volume
 		document.cookie = "volume="+percentage+"; expires=Fri, 31 Dec 9999 23:59:59 GMT";
-    	console.log("VOLUME ALTERADO: "+percentage);
-		
+		console.log("VOLUME ALTERADO: "+percentage);
+			
 		//change sound icon based on volume
 		if(video[0].volume == 0){
 			$('.sound').removeClass('sound2').addClass('muted');
@@ -736,7 +629,7 @@ $('.som').on('mouseenter', function() {
 		else{
 			$('.sound').removeClass('muted').removeClass('sound2');
 		}
-		
+			
 	};
 
 	//Time format converter - 00:00
@@ -746,6 +639,3 @@ $('.som').on('mouseenter', function() {
 		return m+":"+s;
 	};
 }
-
-
-

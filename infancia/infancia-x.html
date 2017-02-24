@@ -6,72 +6,23 @@
 	
 		<meta http-equiv="content-type" content="text/html" charset="utf-8">
 	
-		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="../css/videoPage.css">
 	
-		<script src="js/jquery.js"></script>
-	
-		<script src="js/video.js"></script>
-	
+		<script src="../js/jquery.js"></script>
+		<script src="../js/video.js"></script>
+
 		<title>Infancia 2x</title>      
 		
-		<link rel="shortcut icon" href="img/favicon.ico" >
-		
-		<!-- custom scrollbar stylesheet -->
-		<link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
-		  
-		<!-- Google CDN jQuery UI stylesheet -->
-		<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/hot-sneaks/jquery-ui.css" />
-		  
-		<style> video{
-			height: 100%;
-			width: 100%;
-			display:block;
-		}
-		
-		.videoContainer{
-			height: 100%;
-			width: 100%;
-		}
-		</style>
-		
-		<script>
-			var x= location.search;
-			x = x.substr(1);
-			
-			//alert("x = " + x);
-			if (x==="infancia"){
-			  $("#inicio").hide();
-			  $("#ep2").show();
-			
-			}
-		</script>
-		
-		<script type="text/javascript">
-		
-		  	$(document).ready(function(){
-		    	$("#adulta").click( function(ev){
-		        	ev.preventDefault();
-		            alert("Esse vídeo ainda não está disponível :(", "Aviso");
-		                  
-			    });
-			
-				$("#velhice").click( function(ev){
-			    	ev.preventDefault();
-			        alert("Esse vídeo ainda não está disponível :(", "Aviso");
-			    });
-		
-		   	});
-		
-		</script>
+		<link rel="shortcut icon" href="../images/favicon.ico" >
 		
 	</head>
 	
 	<body>
 	
-		<section id="wrapper">
+		<div id="wrapper">
 		
 			<div class="videoContainer">
-			
+				
 				<div id="infancia2" class="video-container" >
 					<video controls autoplay id="v_ep3" width="960" height="540" preload="auto"  style="display: block; z-index: 100;" class="myVideo">			
 						<source  id="webmvideo" src="videos/ep3.webm" > 			
@@ -80,11 +31,6 @@
 					</video>
 				</div>
 				
-				<a style="display:block" href="infancia-x.html">
-					<div id="selec6" class="ble"></div></a>
-				
-				<a style="display:block" href="infancia-y.html">
-					<div id="selec7" class="ble"></div></a>
 				
 				<div id="proxjor" class="ble">
 					<div class="svg-container">
@@ -117,8 +63,6 @@
 						</div> 
 						
 				</div>
-					
-				<div style="opacity: 0.31011;" class="caption">This is HTML5 video with custom controls</div>
 				  
 				<div class="control" >
 				
@@ -173,81 +117,18 @@
 						  <span class="duration">00:05</span> 
 						</div>
 					       
+
+
 					</div>
 				</div>
-				
-				<div class="barralateral">
-					<a href="index.html"  title="Pagina Inicial">	
-						<div class="home btn" ></div></a>
-					
-					<div class="mochila btn" title="Inventário"></div>
-					
-					<div class="vidmochila content mCustomScrollbar light _mCS_2">
-						
-						<div class="configmochila" style="border-top-left-radius: 15px; border-top-right-radius: 15px;"><p class="configfig" id="inventario" style="font-size: 16px;">INVENTÁRIO</p></div>
-						
-						<div class="configmochila" ><p class="configfig" id="entenda" >Entenda a Epilepsia</p></div>
-						
-						<div class="vidinvent"><a href="notyet.html" id="bolinha" title = "Assistir: Tipos de Crise"><div class="link bolinha vid1"></div></a></div>
-						
-						<div class="configmochila" style="margin-top: 75px"><p class="configfig" id="infancia" >Infância</p></div>
-						
-						<div class="configmochila"><p class="configfig" id="juventude" >Juventude</p></div>
-						
-						<div class="configmochila"><p class="configfig" id="adulta" >Idade Adulta</p></div>
-						
-						<div class="configmochila" style="margin-bottom: 0px"><p class="configfig" id="velhice" >Velhice</p></div>
-						
-						
-						         
-						</div>
-					
-					
-					<div class="share btn" title="Compartilhar"></div>
-					
-					<div class="botoes">
-					<div class="twitter btn"></div>
-					<div class="facebook btn"></div>
-					<div class="google btn"></div></div>
-				</div>   
-				</div>
-  
-			<div style="display: none;" class="loading"></div>
-	
-		</section>
-		
-		<script src="js/corrigirquadrados.js"></script>
-		
+			</div>
+		</div>
+
 		<script type="text/javascript">
-		
-			$(window).bind('resize', function () { 
-			
-			    corrigirquadrados();
-			
-			});
-			
+			var video = document.getElementById('v_ep3');
+			video.addEventListener('ended',function() {       
+			window.location.href = '../medico/acomp-medico.html';})
 		</script>
-		
-		<!-- Google CDN jQuery with fallback to local -->
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-		<script>window.jQuery || document.write('<script src="/js/minified/jquery-1.11.0.min.js"><\/script>')</script>
-		
-		<!-- Google CDN jQuery UI with fallback to local -->
-		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
-		<script>window.jQuery.ui || document.write('<script src="/js/minified/jquery-ui-1.10.4.min.js"><\/script>')</script>
-		
-		<!-- custom scrollbar plugin -->
-		<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-		
-		<script>
-			(function($){
-				$(window).on("load",function(){
-			 		$(".content").mCustomScrollbar();
-			  	});
-			 
-			})(jQuery);
-		</script>
-	
 	</body>
 	
 </html>

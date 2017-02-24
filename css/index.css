@@ -4,6 +4,46 @@ body, html {
     overflow: hidden;
 }
 
+.gen-container {
+	position: relative;
+}
+
+/* 3 bars menu icon */
+.menu-icon{
+	position: absolute;
+	top: 13px;
+	left:20px;
+	z-index: 2;
+	cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 30px;
+    height: 5px;
+    background-color: darkgray;
+    margin: 4px 0;
+    transition: 0.4s;
+	padding: 0;
+	border: 0.6px solid dimgray;
+	opacity: 0.5;
+}
+
+.menu-icon:hover .bar1{
+	opacity: 1;
+	background-color: #f1f1f1;
+}
+
+.menu-icon:hover .bar2{
+	opacity: 1;
+	background-color: #f1f1f1;
+}
+
+.menu-icon:hover .bar3{
+	opacity: 1;
+	background-color: #f1f1f1;
+}
+
+/* svg style */
 .svg-container { 
 	display: inline-block;
 	position: relative;
@@ -11,11 +51,12 @@ body, html {
 	padding-bottom: 100%; 
 	vertical-align: middle; 
 	overflow: hidden; 
+	z-index: 1;
 }
 
 .svg-content { 
 	display: inline-block;
-	position: absolute;
+	position: relative;
 	top: 0;
 	left: 0;
 }
@@ -28,6 +69,46 @@ body, html {
     display: none;
 }
 
-image {
-    overflow:visible;
+/* menu navigation */
+.sidenav {
+    height: 100%;
+    width: 230px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: black;
+    overflow-x: hidden;
+    transition: 0.4s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 0px 0px 0px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    transition: 0.1;
+}
+
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 56px;
+    margin-left: 50px;
+}
+
+.svg-container, .menu-icon {
+    transition: margin-left .5s;   
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
 }

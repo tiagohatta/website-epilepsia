@@ -60,3 +60,17 @@ function mainPage(){
     }
 
 }
+
+/* Menu Functions */
+function openNav() {
+    document.getElementById("landscape").style.marginLeft = "230px";
+    document.getElementById("button").style.marginLeft = "230px";
+    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+function closeNav() {
+    
+    document.getElementById("landscape").style.marginLeft= "0";
+    document.getElementById("button").style.marginLeft= "0";
+    document.body.style.backgroundColor = "white";
+}
