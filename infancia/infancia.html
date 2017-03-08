@@ -7,6 +7,7 @@
     
     <script src="../js/jquery.js"></script>
     <script src="../js/video.js"></script>
+    <script src="../js/server.js"></script>
     <script src="../js/corrigirquadrados.js"></script>
     
     <title> Infancia </title>
@@ -28,11 +29,11 @@
         </div>
         <!-- user selection on the video - dashed boxes 
              related to corrigirquadrados.js and video.js -->
-        <a style="display:block" href="script.php">
+        <a style="display:block" href="infancia-x.html" onClick="sendMsgToServer('infancia-x')" >
             <div id="selec6" class="option1">                   
             </div>
         </a>
-        <a style="display:block" href="infancia-y.html"><div id="selec7" class="option1"></div></a>
+        <a style="display:block" href="infancia-y.html" onClick="sendMsgToServer('infancia-y')"><div id="selec7" class="option1"></div></a>
       </div>
     </div>
   
@@ -92,6 +93,5 @@
 
       </div>
     </div>
-    
   </body>
 </html>

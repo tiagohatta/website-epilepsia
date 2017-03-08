@@ -63,8 +63,8 @@ function mainPage(){
 
 /* Menu Functions */
 function openNav() {
-    document.getElementById("landscape").style.marginLeft = "230px";
-    document.getElementById("button").style.marginLeft = "230px";
+    document.getElementById("landscape").style.marginLeft = "180px";
+    document.getElementById("button").style.marginLeft = "180px";
     document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
 }
 
@@ -73,4 +73,15 @@ function closeNav() {
     document.getElementById("landscape").style.marginLeft= "0";
     document.getElementById("button").style.marginLeft= "0";
     document.body.style.backgroundColor = "white";
+}
+
+function toogleLinks(situation){
+    var menuBox = document.getElementById(situation);
+
+    if(menuBox.style.display == "block") { // if is menuBox displayed, hide it
+        menuBox.style.display = "none";
+    }
+    else { // if is menuBox hidden, display it
+        menuBox.style.display = "block";
+    }
 }

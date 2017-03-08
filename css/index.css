@@ -72,7 +72,7 @@ body, html {
 /* menu navigation */
 .sidenav {
     height: 100%;
-    width: 230px;
+    width: 180px;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -86,10 +86,9 @@ body, html {
 .sidenav a {
     padding: 0px 0px 0px 32px;
     text-decoration: none;
-    font-size: 20px;
     color: #818181;
     display: block;
-    transition: 0.1;
+    
 }
 
 .sidenav a:hover, .offcanvas a:focus{
@@ -111,4 +110,15 @@ body, html {
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
+}
+
+#main-assist:hover #sub-assist, #main-med:hover #sub-med {
+	display: block;
+}
+
+#sub-med, #sub-assist {
+	padding: 3px;
+	font-size: 15px;
+	-webkit-transition: all 0.5s ease-out;
+	display: none;
 }
